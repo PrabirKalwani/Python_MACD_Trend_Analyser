@@ -1,4 +1,4 @@
-"""stocks URL Configuration
+"""myproject URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -15,12 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from website.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
-from django.urls import include, path
+    path('', home, name='home'),
 
-urlpatterns = [
-    path('', include('main.urls')),
 ]
+
