@@ -2,7 +2,7 @@
 
 ## Features
 
--Django App to learn stock charts
+-Django App to learn stock charts <br>
 -Django App to predict Stock outcomes 
 
 ## Start App
