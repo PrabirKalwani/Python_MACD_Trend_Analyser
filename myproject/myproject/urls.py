@@ -18,12 +18,24 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from website.views import home, learn, predict
+from website.views import flag, penant, ascending, descending, symmetrical, cup, head, double,gaps 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('learn/', learn, name='learn'),
     path('predict/', predict, name='predict'),
+    path('learn/flag', flag, name='flag'),
+    path('learn/penant', penant, name='penant'),
+    path('learn/ascending', ascending, name='ascending'),
+    path('learn/descending', descending, name='descending'),
+    path('learn/symmetrical', symmetrical, name='symmetrical'),
+    path('learn/cup', cup, name='cup'),
+    path('learn/head', head, name='head'),
+    path('learn/double', double, name='double'),
+    path('learn/gaps', gaps, name='gaps'),
+
+    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
