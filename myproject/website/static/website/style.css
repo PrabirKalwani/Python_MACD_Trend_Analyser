@@ -231,3 +231,30 @@ body,html {
     -webkit-line-clamp: 3;
     overflow: hidden;
   }    
+
+
+
+
+  /* learn graphs every page code  */
+  /* flag.html */
+  .learn_graphs {
+    background-color: black;
+  }
+
+  
+.learn_graph_main_image img{
+  width: 500px;
+  margin: 0 auto;
+  display: block;
+  border-radius:6%;
+
+}
+
+
+.learn_graph_main_image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+}
