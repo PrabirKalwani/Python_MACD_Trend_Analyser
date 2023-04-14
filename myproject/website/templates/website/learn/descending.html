@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'website/style.css' %}">
+	<script type="text/javascript" src="{% static 'website/script.js' %}"></script>
+	<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400&display=swap" rel="stylesheet">
+	<link href="https://api.fontshare.com/v2/css?f[]=technor@900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+</head>
+<body>
+<!-- 
+    <div class="nav">
+        <a href="{% url 'learn' %}">Learn</a>
+        <a href="{% url 'predict' %}">Predict</a>
+        <a href="{% url 'home' %}">Home</a>
+    </div>
+    <div class="heading_graphs">
+    <h1>what is flag graph</h1>
+    
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat error quas nostrum cumque dignissimos deserunt! Consectetur expedita quisquam rerum aliquam iusto neque fugit consequuntur eaque iste! Ducimus accusantium cum eveniet?</p>
+    </div>
+    <div class="video_about">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/XfqOB4hvxlY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div> -->
+
+    <body>
+        <div class="nav">
+            <a href="{% url 'learn' %}">Learn</a>
+            <a href="{% url 'predict' %}">Predict</a>
+            <a href="{% url 'home' %}">Home</a>
+        </div>
+        
+        <div class= 'graph_container'>
+            <div class="graph_container_content">
+            <div class="graph_container_content_inner">
+            <div class="graph_title">
+              <h1 class="graph_h1">Descending Graph</h1>
+            </div>
+            <div class="graph_par">
+            <p class="graph_p">
+            Cupiditate alias odio omnis minima veritatis saepe porro, repellendus natus vitae, sequi exercitationem ipsam, qui possimus sit eveniet laborum sapiente quisquam quae neque velit? 
+            </p>
+            </div>
+            <div class="graph_btns">
+            <button class='graph_btns_more'> See more </button>
+            </div>
+            </div>
+            </div>
+             <div class="graph_container_outer_img">
+             <div class="graph_img-inner">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/XfqOB4hvxlY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+              </div>
+            <div class="graph_overlay"></div>
+      </body>
+
+
+
+
+
+
+</body>
+</html>

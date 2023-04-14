@@ -12,7 +12,7 @@
 	<link href="https://api.fontshare.com/v2/css?f[]=technor@900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
-    <title>Document</title>
+    <title>Main</title>
 </head>
 <body class="body_learn">
     <div class="nav">
@@ -26,7 +26,7 @@
         <ul class="cards">
             <li>
                 <!-- Penenant -->
-              <a href="" class="card">
+              <a href="{% url 'penant' %}" class="card">
                 <img src="{{ MEDIA_URL }}/media/images/pengraph.png" class="card__image" alt="" />
                 <div class="card__overlay">
                   <div class="card__header">
@@ -57,7 +57,7 @@
 
               <!-- wedge -->
               <li>
-                <a href="" class="card">
+                <a href="{% url 'penant' %}" class="card">
                   <img src="{{ MEDIA_URL }}/media/images/wedge.png" class="card__image" alt="" />
                   <div class="card__overlay">
                     <div class="card__header">
@@ -74,7 +74,7 @@
               <!-- ascending Triangle -->
 
               <li>
-                <a href="" class="card">
+                <a href="{% url 'ascending' %}" class="card">
                   <img src="{{MEDIA_URL}}/media/images/ascending.png"class="card__image" alt=""/>
                   <div class="card__overlay">
                     <div class="card__header">
@@ -92,7 +92,7 @@
               <!-- descending Triangle -->
               
               <li>
-                <a href="" class="card">
+                <a href="{% url 'descending' %}" class="card">
                   <img src="{{MEDIA_URL}}/media/images/descending.png"class="card__image" alt=""/>
                   <div class="card__overlay">
                     <div class="card__header">
@@ -109,7 +109,7 @@
               <!-- symmetrical Triangle -->
 
               <li>
-                <a href="" class="card">
+                <a href="{% url 'symmetrical' %}" class="card">
                   <img src="{{MEDIA_URL}}/media/images/symmetrical_triangle.png"class="card__image" alt=""/>
                   <div class="card__overlay">
                     <div class="card__header">
@@ -125,7 +125,7 @@
 
               <!-- Cup and Handle -->
               <li>
-                <a href="" class="card">
+                <a href="{% url 'cup' %}" class="card">
                   <img src="{{MEDIA_URL}}/media/images/cup&handle.png"class="card__image" alt=""/>
                   <div class="card__overlay">
                     <div class="card__header">
@@ -140,7 +140,7 @@
               </li>
               <!-- Head N Shoulder -->
               <li>
-                <a href="" class="card">
+                <a href="{% url 'head' %}" class="card">
                   <img src="{{MEDIA_URL}}/media/images/headNshoulders.png"class="card__image" alt=""/>
                   <div class="card__overlay">
                     <div class="card__header">
@@ -156,7 +156,7 @@
               <!-- double top and bottom  -->
 
               <li>
-                <a href="" class="card">
+                <a href="{% url 'double' %}" class="card">
                   <img src="{{MEDIA_URL}}/media/images/double_top_bottom.png"class="card__image" alt=""/>
                   <div class="card__overlay">
                     <div class="card__header">
@@ -173,7 +173,7 @@
               <!-- Gaps -->
 
               <li>
-                <a href="" class="card">
+                <a href="{% url 'gaps' %}" class="card">
                   <img src="{{MEDIA_URL}}/media/images/gaps.png"class="card__image" alt=""/>
                   <div class="card__overlay">
                     <div class="card__header">
