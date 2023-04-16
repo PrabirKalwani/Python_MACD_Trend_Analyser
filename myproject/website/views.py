@@ -40,3 +40,12 @@ def double(request):
 def gaps(request):
     return render(request, 'website/learn/gaps.html')
 
+def reliance(request):
+    return render(request,'website/predict/Reliance.html')
+
+
+def itc(request):
+    return render(request,'website/predict/ITC.html')
+
+def tata(request):
+    return render(request,'website/predict/tata.html')

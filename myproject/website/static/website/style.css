@@ -395,7 +395,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;  
-padding-top: 400px;
+padding-top: 200px;
 }
  button {
 	 border: 0;
@@ -497,4 +497,8 @@ padding-top: 400px;
 	 transform: translateY(4px);
 	 box-shadow: 0 3px #e0c503;
 }
- 
+
+.graph_image {
+  width: 50%;
+  padding-bottom: 100px;
+}
