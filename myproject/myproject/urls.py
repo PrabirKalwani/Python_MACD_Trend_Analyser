@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path
 from website.views import home, learn, predict
 from website.views import flag, penant, ascending, descending, symmetrical, cup, head, double,gaps 
-
+from website.views import reliance,itc,tata
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
@@ -34,7 +34,10 @@ urlpatterns = [
     path('learn/head', head, name='head'),
     path('learn/double', double, name='double'),
     path('learn/gaps', gaps, name='gaps'),
-
+    path('predict/reliance',reliance,name='reliance'),
+    path('predict/itc',itc,name='itc'),
+    path('predict/tata',tata,name='tata'),
+    
     
 ]
 
