@@ -54,8 +54,8 @@ python manage.py runserver
 
 - [@prabirkalwani](https://www.github.com/prabirkalwani)
 
-- [@Aayush Shah](https://www.github.com/prabirkalwani)
+- [@Aayush Shah](https://www.github.com/aayushshah1)
 
-- [@Shashank Shekhar](https://www.github.com/prabirkalwani)
+- [@Shashank Shekhar](https://www.github.com/ShashankS69)
 
-- [@Harshvardhan Patil](https://www.github.com/prabirkalwani)
+- [@Harshvardhan Patil](https://www.github.com/HarshvardhanPatil30)
