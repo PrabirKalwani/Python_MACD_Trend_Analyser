@@ -90,8 +90,11 @@ body,html {
 /* predict.html  */
 .body_predict{
     background-color: black;
+    color:black;
 }
-
+.inputform {
+  color: black;
+}
 
 /* ************************************************** */
 /* learn.html */

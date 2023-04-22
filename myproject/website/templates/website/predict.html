@@ -14,12 +14,17 @@
 
     <title>Predict </title>
 </head>
-<body >
+<body class="body_predict">
   
     <div class="container">
+      <div class="nav">
+        <a href="{% url 'learn' %}">Learn</a>
+        <a href="{% url 'predict' %}">Predict</a>
+        <a href="{% url 'home' %}">Home</a>
+    </div>
         <h1>Predict</h1>
         <form method="GET" action="{% url 'plot_macd' %}">
-          <input type="text" name="ticker" placeholder="Enter Ticker Symbol">
+          <input type="text" name="ticker" placeholder="Enter Ticker Symbol" class="inputform ">
           <button type="submit">Plot MACD</button>
         </form>
         <hr>
