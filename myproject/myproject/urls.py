@@ -20,6 +20,13 @@ from django.urls import path
 from website.views import home, learn, predict
 from website.views import flag, penant, ascending, descending, symmetrical, cup, head, double,gaps 
 from website.views import reliance,itc,tata
+
+from django.urls import path
+from website.views import plot_macd
+
+
+
+ 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
@@ -37,7 +44,7 @@ urlpatterns = [
     path('predict/reliance',reliance,name='reliance'),
     path('predict/itc',itc,name='itc'),
     path('predict/tata',tata,name='tata'),
-    
+    path('plot_macd/', plot_macd, name='plot_macd'),
     
 ]
 

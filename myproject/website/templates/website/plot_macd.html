@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>Technical Analysis Plots</h3>
+      <form id="ticker-form">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="ticker-symbol">Enter a stock ticker symbol (e.g. AAPL):</label>
+          <input type="text" class="form-control" id="ticker-symbol" name="ticker-symbol">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div id="macd-graph"></div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript">
+  // Function to make an API call to the server
+  function makeApiCall(event) {
+    // Prevent the form from submitting and reloading the page
+    event.preventDefault();
+    // Get the ticker symbol from the form input
+    var ticker = $('#ticker-symbol').val();
+    // Make the API call to the server
+    $.ajax({
+      url: '/plot_macd/',
+      data: {
+        'ticker': ticker
+      },
+      dataType: 'json',
+      success: function(data) {
+        // Create the MACD plot using Plotly
+        var traceMacd = {
+          x: data.dates,
+          y: data.macd,
+          name: 'MACD',
+          type: 'scatter'
+        };
+        var traceSignal = {
+          x: data.dates,
+          y: data.signal,
+          name: 'Signal',
+          type: 'scatter'
+        };
+        var traceHistogram = {
+          x: data.dates,
+          y: data.histogram,
+          name: 'Histogram',
+          type: 'bar'
+        };
+        var layout = {
+          title: 'MACD for ' + ticker
+        };
+        Plotly.newPlot('macd-graph', [traceMacd, traceSignal, traceHistogram], layout);
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        console.log('Error making API call: ' + textStatus + ' ' + errorThrown);
+      }
+    });
+  }
+  // Bind the API call function to the form submit event
+  $('#ticker-form').submit(makeApiCall);
+</script>
+
+{% endblock %}
+
+</body>
+</html>

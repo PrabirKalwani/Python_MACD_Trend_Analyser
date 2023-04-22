@@ -1,14 +1,68 @@
 from django.shortcuts import render
+import yfinance as yf
+import plotly.graph_objs as go
+import plotly.offline as opy
+def plot_macd(request):
+    # Fetch the stock data using yfinance
+    ticker = request.GET.get('ticker', 'AAPL')  # default to AAPL if ticker not provided
+    stock = yf.Ticker(ticker)
+    df = stock.history(period="max")
 
+    # Calculate the MACD
+    exp1 = df['Close'].ewm(span=12, adjust=False).mean()
+    exp2 = df['Close'].ewm(span=26, adjust=False).mean()
+    macd = exp1 - exp2
+    signal = macd.ewm(span=9, adjust=False).mean()
+    histogram = macd - signal
+
+    # Create the MACD plot using Plotly
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=df.index, y=macd, name='MACD'))
+    fig.add_trace(go.Scatter(x=df.index, y=signal, name='Signal'))
+    fig.add_trace(go.Bar(x=df.index, y=histogram, name='Histogram'))
+    fig.update_layout(title=f"MACD for {ticker}")
+
+    # Convert the figure to HTML
+    plot_html = opy.plot(fig, auto_open=False, output_type='div')
+
+    # Render the HTML template with the plot embedded
+    return render(request, 'website/predict.html', {'plot_html': plot_html})
 
 def home(request):
     return render(request, 'website/home.html')
 
 def learn(request):
     return render(request, 'website/learn.html')
-
 def predict(request):
-    return render(request, 'website/predict.html')
+    if request.method == 'POST':
+        # Get the form data
+        ticker = request.POST['ticker']
+
+        # Fetch the stock data using yfinance
+        stock = yf.Ticker(ticker)
+        df = stock.history(period="max")
+
+        # Calculate the MACD
+        exp1 = df['Close'].ewm(span=12, adjust=False).mean()
+        exp2 = df['Close'].ewm(span=26, adjust=False).mean()
+        macd = exp1 - exp2
+        signal = macd.ewm(span=9, adjust=False).mean()
+        histogram = macd - signal
+
+        # Create the MACD plot using Plotly
+        fig = go.Figure()
+        fig.add_trace(go.Scatter(x=df.index, y=macd, name='MACD'))
+        fig.add_trace(go.Scatter(x=df.index, y=signal, name='Signal'))
+        fig.add_trace(go.Bar(x=df.index, y=histogram, name='Histogram'))
+        fig.update_layout(title=f"MACD for {ticker}")
+
+        # Convert the figure to HTML
+        plot_html = opy.plot(fig, auto_open=False, output_type='div')
+
+        # Render the HTML template with the plot embedded
+        return render(request, 'website/predict.html', {'plot_html': plot_html})
+    else:
+        return render(request, 'website/predict.html')
 
 def penant(request):
     return render(request, 'website/learn/penant.html')

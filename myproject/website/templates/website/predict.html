@@ -14,27 +14,20 @@
 
     <title>Predict </title>
 </head>
-<body class="body_predict">
-    <div class="nav">
-        <a href="{% url 'learn' %}">Learn</a>
-        <a href="{% url 'predict' %}">Predict</a>
-        <a href="{% url 'home' %}">Home</a>
-    </div>
-    <div class="content_predict">
-        <h1>Stock-Prediction</h1>
-        <p>Currently our stock prediction algorithm is only working statically soon we will upgrade this to work dynamically</p>
-    </div>
-    <div class="button-container">
-    <div class="multi-button">
-        <button class="btn-primary" onclick="window.location.href='{% url 'tata' %}'">Tata</button>
-<button class="btn-secondary" onclick="window.location.href='{% url 'reliance' %}'">Reliance</button>
-<button class="btn-secondary-custom" onclick="window.location.href='{% url 'itc' %}'">ITC</button>
-
-        
+<body >
+  
+    <div class="container">
+        <h1>Predict</h1>
+        <form method="GET" action="{% url 'plot_macd' %}">
+          <input type="text" name="ticker" placeholder="Enter Ticker Symbol">
+          <button type="submit">Plot MACD</button>
+        </form>
+        <hr>
+        <div class="plot-container">
+          {{ plot_html|safe }}
         </div>
-
-    </div>
-
+      </div>
+      
      
 </body>
 </html>
