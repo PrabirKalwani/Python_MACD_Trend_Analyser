@@ -1,8 +1,15 @@
-FROM python:3.9-alpine
+FROM python:3.9
+
 ENV PYTHONBUFFERED 1
 
-WORKDIR /app
+WORKDIR /code
+
 COPY requirements.txt .
+
 RUN pip install -r requirements.txt
+
 COPY . .
-CMD python manage.py runserver 0.0.0.0:6969
+
+EXPOSE 6969
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:6969"]
