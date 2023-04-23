@@ -1,16 +1,22 @@
 from django.shortcuts import render
-import yfinance as yf
+import requests
+import pandas as pd
 import plotly.graph_objs as go
 import plotly.offline as opy
+
 def plot_macd(request):
-    # Fetch the stock data using yfinance
+    # Fetch the stock data using Alpha Vantage
+    api_key = 'HEAH76RM55GB46KW'
     ticker = request.GET.get('ticker', 'AAPL')  # default to AAPL if ticker not provided
-    stock = yf.Ticker(ticker)
-    df = stock.history(period="max")
+    url = f'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol={ticker}&apikey={api_key}&outputsize=full'
+    response = requests.get(url)
+    data = response.json()['Time Series (Daily)']
+    df = pd.DataFrame.from_dict(data, orient='index', dtype=float)
+    df.index = pd.to_datetime(df.index)
 
     # Calculate the MACD
-    exp1 = df['Close'].ewm(span=12, adjust=False).mean()
-    exp2 = df['Close'].ewm(span=26, adjust=False).mean()
+    exp1 = df['4. close'].ewm(span=12, adjust=False).mean()
+    exp2 = df['4. close'].ewm(span=26, adjust=False).mean()
     macd = exp1 - exp2
     signal = macd.ewm(span=9, adjust=False).mean()
     histogram = macd - signal
