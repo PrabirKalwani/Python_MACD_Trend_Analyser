@@ -1,6 +1,6 @@
 # Python-Project
 
-![image](https://user-images.githubusercontent.com/126041880/234365613-03be6c9a-eeef-4fc0-9d62-eb934fbcc605.png)
+![image](https://user-images.githubusercontent.com/70889682/234373044-158c6ad0-072c-4635-afac-4333edac37c2.png)
 
 ## Introduction
 <p>
